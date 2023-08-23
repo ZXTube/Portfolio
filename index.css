@@ -1,0 +1,75 @@
+body {
+  background-color: rgb(20, 20, 20);
+  color: rgb(200, 200, 200);
+  font-family: cursive;
+  text-align: center;
+  font-size: 1vw;
+}
+.welcome-text {
+  color: rgb(35, 155, 94);
+  font-family: Courier;
+  margin-bottom: 1vw;
+  font-size: 7vw;
+}
+.description-text {
+  margin-right: 15vw;
+  margin-left: 15vw;
+}
+.project-type-text,
+.project-subtype-text {
+  display: inline-block;
+  position: absolute;
+  margin-left: 0.5vw;
+  text-align: left;
+  font-size: 2vw;
+  left: 8vw;
+}
+.project-subtype-text {
+  margin-left: 2vw;
+  margin-top: 1vw;
+  font-size: 1.5vw;
+}
+.sub-holder {
+  --expanded-height: 0px;
+
+  background-color: black;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  height: 0px;
+  top: 1.5vw;
+
+  transition: height 0.5s;
+}
+.sub-holder[lolz="true"] {
+  height: var(--expanded-height);
+  transition: height 0.5s;
+}
+.dropdown-arrow-holder,
+.sub-dropdown-arrow-holder {
+  position: relative;
+  text-align: left;
+  height: 4vw;
+  width: 20vw;
+  left: 5.3vw;
+  top: 1.45vw;
+
+  transition: filter 0.25s;
+}
+.sub-dropdown-arrow-holder {
+  left: 7.5vw;
+}
+.dropdown-arrow {
+  margin-top: 1vw;
+  height: 2vw;
+  width: 2vw;
+}
+.sub-dropdown-arrow {
+  height: 1.5vw;
+  width: 1.5vw;
+}
+.dropdown-arrow-holder:hover,
+.sub-dropdown-arrow-holder:hover {
+  filter: invert(50%) sepia(16%) saturate(1583%) hue-rotate(95deg);
+  transition: filter 0.25s;
+}
