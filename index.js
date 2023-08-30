@@ -1,24 +1,27 @@
-let dropdownArrows = Array.prototype.slice.call(document.getElementsByClassName("dropdown-arrow-holder"), 0);
-dropdownArrows = dropdownArrows.concat(Array.prototype.slice.call(document.getElementsByClassName("sub-dropdown-arrow-holder"), 0));
-for (let i = 0; i < dropdownArrows.length; i++) {
-    dropdownArrows[i].onclick = () => {
-        let arrow = dropdownArrows[i].children[0];
+let skills = document.getElementsByClassName("skill");
+let originalSkillBorderRadius = skills[0].style.borderRadius;
+for (let i = 0; i < skills.length; i++) {
+    let filter = skills[i].children[0];
+    filter.onclick = () => {
+        let arrow = filter.children[1];
         if (arrow.getAttribute("opened") == "true") {
-            arrow.style = "transform: rotate(0deg); transition: transform 0.5s";
             arrow.setAttribute("opened", "false");
-            document.getElementsByClassName("sub-holder")[0].setAttribute("lolz", "false");
+            skills[i].setAttribute("expanded", "false");
         }
         else {
             arrow.setAttribute("opened", "true");
-            arrow.style = "transform: rotate(90deg); transition: transform 0.5s";
-            document.getElementsByClassName("sub-holder")[0].setAttribute("lolz", "true");
+            skills[i].setAttribute("expanded", "true");
         }
     }
-}
 
-let lolz = document.getElementsByClassName("sub-holder")[0].children;
-let bwah = 0;
-for (let i = 1; i < lolz.length; i += 2) {
-    bwah += lolz[i].offsetHeight;
+    requestAnimationFrame(setExpandedHeight);
+
+    function setExpandedHeight() {
+        let height = skills[i].offsetHeight;
+        let skillChildren = skills[i].children;
+        for (let i = 1; i < skillChildren.length; i += 2) {
+            height += skillChildren[i].offsetHeight;
+        }
+        skills[i].style.setProperty("--expanded-height", height.toString() + "px");
+    }
 }
-document.getElementsByClassName("sub-holder")[0].style.setProperty("--expanded-height", bwah.toString() + "px");

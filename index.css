@@ -5,71 +5,174 @@ body {
   text-align: center;
   font-size: 1vw;
 }
-.welcome-text {
+a,
+a:visited {
+  color: #3b50ae;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #393939;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #272727;
+}
+
+#welcome-text {
   color: rgb(35, 155, 94);
   font-family: Courier;
   margin-bottom: 1vw;
+  font-weight: normal;
   font-size: 7vw;
 }
-.description-text {
+#intro-text {
+  font-weight: normal;
   margin-right: 15vw;
   margin-left: 15vw;
+  font-size: 1.3vw;
 }
-.project-type-text,
-.project-subtype-text {
-  display: inline-block;
-  position: absolute;
-  margin-left: 0.5vw;
-  text-align: left;
-  font-size: 2vw;
-  left: 8vw;
+
+#skills-holder {
+  margin-top: 3.5vw;
+  margin-left: 5vw;
+  margin-bottom: 3.5vw;
+  width: 90vw;
 }
-.project-subtype-text {
-  margin-left: 2vw;
-  margin-top: 1vw;
-  font-size: 1.5vw;
-}
-.sub-holder {
+.skill {
+  background-color: #ffffff05;
   --expanded-height: 0px;
-
-  background-color: black;
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;
-  height: 0px;
-  top: 1.5vw;
-
-  transition: height 0.5s;
-}
-.sub-holder[lolz="true"] {
-  height: var(--expanded-height);
-  transition: height 0.5s;
-}
-.dropdown-arrow-holder,
-.sub-dropdown-arrow-holder {
+  border-radius: 0.7vw;
+  margin-bottom: 35px;
   position: relative;
   text-align: left;
+  overflow: hidden;
   height: 4vw;
-  width: 20vw;
-  left: 5.3vw;
-  top: 1.45vw;
+  width: 100%;
 
+  transition: height 0.5s;
+}
+.skill[expanded="true"] {
+  transition: height 0.5s;
+  height: var(--expanded-height);
+}
+.filter {
+  height: 4vw;
+  cursor: pointer;
+  border-radius: 0.7vw;
+  background-color: #ffffff07;
   transition: filter 0.25s;
 }
-.sub-dropdown-arrow-holder {
-  left: 7.5vw;
-}
-.dropdown-arrow {
-  margin-top: 1vw;
-  height: 2vw;
-  width: 2vw;
-}
-.sub-dropdown-arrow {
-  height: 1.5vw;
-  width: 1.5vw;
-}
-.dropdown-arrow-holder:hover,
-.sub-dropdown-arrow-holder:hover {
+.filter:hover {
   filter: invert(50%) sepia(16%) saturate(1583%) hue-rotate(95deg);
   transition: filter 0.25s;
+}
+.filter h2 {
+  display: inline-block;
+  position: absolute;
+  margin-left: 3.3vw;
+  text-align: left;
+  font-size: 2vw;
+  user-select: none;
+  margin-top: 0.5vw;
+}
+.dropdown-arrow {
+  width: 2vw;
+  height: 2vw;
+  margin-top: 1vw;
+  margin-left: 1vw;
+  user-select: none;
+  transform: rotate(0deg);
+  transition: transform 0.5s;
+}
+.dropdown-arrow[opened="true"] {
+  transform: rotate(90deg);
+  transition: transform 0.5s;
+}
+
+.projects-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  width: 94%;
+}
+.project {
+  flex: 1;
+  min-width: 320px;
+  margin: 20px;
+  padding-bottom: 0.5vw;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px #000;
+  border-radius: 10px;
+}
+.project img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+}
+.project h1 {
+  margin: 1vw;
+}
+.project h3 {
+  font-weight: lighter;
+  margin: 1vw;
+}
+
+@media screen and (max-width: 950px) {
+  #welcome-text {
+    font-size: 40px;
+  }
+  #intro-text {
+    font-size: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  #skills-holder {
+    margin-top: 23px;
+    margin-left: 10px;
+    margin-bottom: 3.5vw;
+    width: calc(100% - 20px);
+  }
+  .skill,
+  .filter {
+    height: 33px;
+    border-radius: 8px;
+  }
+  .filter h2 {
+    font-size: 14px;
+    margin-left: 27px;
+    margin-top: 7px;
+  }
+  .dropdown-arrow {
+    width: 20px;
+    height: 20px;
+    margin-top: 7px;
+    margin-left: 4px;
+  }
+
+  .projects-holder {
+    padding: 0px;
+  }
+  .project {
+    margin-right: 10px;
+    margin-left: 10px;
+    min-width: 200px;
+  }
+  .project h1 {
+    font-size: 20px;
+    margin: 10px;
+  }
+  .project h3 {
+    font-size: 11px;
+    margin: 10px;
+  }
 }

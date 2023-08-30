@@ -11,67 +11,133 @@
 </head>
 
 <body>
-    <p class="welcome-text">Hello!</p>
-    <p class="description-text">My name is Ziyad. I was born in 2008, I started coding in 2019, I started by making
-        small Unity games, then I tried everything. Python (Pygame), C++ (SFML), Assembly (x86), Hacking
-        (Disassembling), MicroPython (Raspberry PI Pico), Chrome extensions (You Shield) and more. Here are all
-        of my projects:
-    </p>
-    <p class="project-type-text">Python</p>
-    <div class="dropdown-arrow-holder">
-        <img class="dropdown-arrow" src="Resources/DropdownArrow.png">
-    </div>
-    <div class="sub-holder">
-        <p class="project-subtype-text">Pygame</p>
-        <div class="sub-dropdown-arrow-holder">
-            <img class="sub-dropdown-arrow" src="Resources/DropdownArrow.png">
+    <h1 id="welcome-text">Hello!</h1>
+    <h3 id="intro-text">My name is Ziyad Edris. I was born in 2008, I started coding in 2019 and started by making
+        small Unity games, then I tried everything, Python (Pygame), C++ (SFML), Assembly (x86), Ethical Hacking
+        (Disassembling), MicroPython (Raspberry PI Pico), Chrome extensions (You Shield), SaaS Website (no frameworks)
+        and more. Here are some of my favourite projects:
+    </h3>
+
+    <div id="skills-holder">
+        <div class="skill">
+            <div class="filter">
+                <h2>Web Development</h2>
+                <img class="dropdown-arrow" src="Resources/DropdownArrow.png">
+            </div>
+
+            <div class="projects-holder">
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>YouSheild</h1>
+                    <h3>YouSheild is a chrome extension that stops the user from falling in youtube's rabbit
+                        hole.<br><br>It hides all of the video recommendations in the homescreen and the videos that
+                        appear on the side when watching a video, it only leaves the search bar. And if a youtube shorts
+                        video shows up in the search result it only lets the user watch that one video and doesn't allow
+                        him to scroll down for more videos</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>KalemGPT</h1>
+                    <h3>KalemGPT is a SaaS tool designed for users in Egypt which chatgpt doesn't allow anyone there to
+                        make an account.<br><br>It uses Open AI's API to ask chatgpt 3.5 questions and forward the
+                        answers to the users<br><br>Note: I was planning to keep the first year on free trials for the
+                        API as the website slowly becomes popular, but later realized that that strategy doesn't work
+                        for startups, You can find the website at <a href="https://kalemgpt.com">kalemgpt.com</a></h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>BizWebless</h1>
+                    <h3>BizWebless is a SaaS tool made for web designers who want to find clients.<br><br>It uses yelp
+                        api to find businesses, then it checks which businesses have a website and which don't, which
+                        businesses have a good SEO score or good performance. which businesses have the most rating or
+                        number of ratings, or both.<br>The user can choose to sort businesses from high to low or low to
+                        high<br><br>This website also has stripe implemented into it to allow users to enter a monthly
+                        subscription</h3>
+                </div>
+            </div>
         </div>
-        <p class="project-subtype-text">Kivy</p>
-        <div class="sub-dropdown-arrow-holder">
-            <img class="sub-dropdown-arrow" src="Resources/DropdownArrow.png">
+
+        <div class="skill">
+            <div class="filter">
+                <h2>Desktop Application Development</h2>
+                <img class="dropdown-arrow" src="Resources/DropdownArrow.png">
+            </div>
+
+            <div class="projects-holder">
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>20-20-20</h1>
+                    <h3>20-20-20 is a program made for eye care, it applies the 20-20-20 rule, every 20 minutes, look
+                        for 20 seconds, at something 20 feet away<br><br>It gives the user a 3 second preperation to
+                        pause anyhting he's doing or cancel the countdown before it takes the whole screen</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>2D Raycasting Experiment</h1>
+                    <h3>In this project I was trying to learn how to make 2d raycasting to understand sin and cos and atan and be one step closer to being able to understand physics engines</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>AI Pong</h1>
+                    <h3>I wanted to learn the basics about AI so I decided to make AI learn to play pong using a python library called neat</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>A Bot</h1>
+                    <h3>A bot that plays a mouse aim improvement game to destory it</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>A Whatsapp Bot</h1>
+                    <h3>A whatsapp bot that takes a list of messages and sends them to a selected person, I learned how to parse html to be able to select certain elements and use them</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>Bezier Curves</h1>
+                    <h3>A Program to experiment with bezier curves, understand how they work and learn more maths to be able to understand technical things better</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>Chess</h1>
+                    <h3>Chess!</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>Cloth Simulation</h1>
+                    <h3>A cloth simulation to better understand and maneuver physics engines, You start and stop the simulation, you can add points and lines and remove lines</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>Controlled Sacrifice</h1>
+                    <h3>A 2D platformer made in a game jam, with 8 levels, whenever you lose a life you need to choose a debuff, half gun damage, lose equipped gun, things like this, when all of the 9 debuffs are used you lose</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>Multiplayer rps</h1>
+                    <h3>Rock Paper Scissors but multiplayer, this teached me a lot about networking, but it's multiplayer for players on the same network</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>My Own IDE</h1>
+                    <h3>This is an unfinished attempt at making my own IDE</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>A*</h1>
+                    <h3>The A* pathfinding algorithm to understand pathfinding and improve my technical thinking</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>Server Test</h1>
+                    <h3>An experiment to try to make my laptop run my server and make anyone be able to connect to it</h3>
+                </div>
+                <div class="project">
+                    <img src="Resources/test.jpg">
+                    <h1>Sorting Algorithms</h1>
+                    <h3>4 sorting algorithms to understand how to optimize things and improve my technical thinking</h3>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <br>
-
-    <p class="project-type-text">Unity</p>
-    <div class="dropdown-arrow-holder">
-        <img class="dropdown-arrow" src="Resources/DropdownArrow.png">
-    </div>
-
-    <br>
-
-    <p class="project-type-text">C++</p>
-    <div class="dropdown-arrow-holder">
-        <img class="dropdown-arrow" src="Resources/DropdownArrow.png">
-    </div>
-
-    <br>
-
-    <p class="project-type-text">C#</p>
-    <div class="dropdown-arrow-holder">
-        <img class="dropdown-arrow" src="Resources/DropdownArrow.png">
-    </div>
-
-    <br>
-
-    <p class="project-type-text">Bash</p>
-    <div class="dropdown-arrow-holder">
-        <img class="dropdown-arrow" src="Resources/DropdownArrow.png">
-    </div>
-
-    <br>
-
-    <p class="project-type-text">Assembly</p>
-    <div class="dropdown-arrow-holder">
-        <img class="dropdown-arrow" src="Resources/DropdownArrow.png">
-    </div>
-
-    <br>
-
-    <p class="project-type-text">HTML & CSS & JS</p>
-    <div class="dropdown-arrow-holder">
-        <img class="dropdown-arrow" src="Resources/DropdownArrow.png">
     </div>
 
     <script src="index.js"></script>
