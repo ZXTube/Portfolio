@@ -7,7 +7,8 @@ body {
 }
 a,
 a:visited {
-  color: #3b50ae;
+  color: #3d5eef;
+  text-decoration: none;
 }
 
 ::-webkit-scrollbar {
@@ -97,7 +98,7 @@ a:visited {
 .projects-holder {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -105,18 +106,31 @@ a:visited {
   width: 94%;
 }
 .project {
-  flex: 1;
-  min-width: 320px;
+  width: 25vw;
   margin: 20px;
+  position: relative;
   padding-bottom: 0.5vw;
   box-sizing: border-box;
   box-shadow: 0px 0px 20px #000;
   border-radius: 10px;
 }
-.project img {
+.project-images-holder {
+  position: relative;
+}
+.project-images-holder div {
+  display: flex;
+}
+.project-images-holder div img {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  width: 0%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.project-images-holder div img[visible="true"] {
   width: 100%;
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 .project h1 {
   margin: 1vw;
@@ -124,6 +138,26 @@ a:visited {
 .project h3 {
   font-weight: lighter;
   margin: 1vw;
+}
+.next-btn, .prev-btn {
+  position: absolute;
+  user-select: none;
+  cursor: pointer;
+  opacity: 0.7;
+  height: 2.2vw;
+  width: 2.2vw;
+  top: 45%;
+  z-index: 100;
+  right: 10px;
+  transition: filter 0.5s;
+}
+.prev-btn {
+  transform: rotate(180deg);
+  left: 10px;
+}
+.next-btn:hover, .prev-btn:hover {
+  filter: invert(100%);
+  transition: filter 0.5s;
 }
 
 @media screen and (max-width: 950px) {
