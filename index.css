@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(20, 20, 20);
-  color: rgb(200, 200, 200);
+  background-color: #141414;
+  color: #c8c8c8;
   font-family: cursive;
   text-align: center;
   font-size: 1vw;
@@ -49,7 +49,6 @@ a:visited {
   --expanded-height: 0px;
   border-radius: 0.7vw;
   margin-bottom: 35px;
-  position: relative;
   text-align: left;
   overflow: hidden;
   height: 4vw;
@@ -108,10 +107,12 @@ a:visited {
 .project {
   width: 25vw;
   margin: 20px;
+  cursor: pointer;
   position: relative;
   padding-bottom: 0.5vw;
   box-sizing: border-box;
   box-shadow: 0px 0px 20px #000;
+  background-color: #151515;
   border-radius: 10px;
 }
 .project-images-holder {
@@ -121,10 +122,11 @@ a:visited {
   display: flex;
 }
 .project-images-holder div img {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  width: 0%;
+  width: 0px;
+  margin: 0px;
   opacity: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   transition: opacity 0.5s;
 }
 .project-images-holder div img[visible="true"] {
@@ -147,7 +149,7 @@ a:visited {
   height: 2.2vw;
   width: 2.2vw;
   top: 45%;
-  z-index: 100;
+  z-index: 1;
   right: 10px;
   transition: filter 0.5s;
 }
@@ -158,6 +160,52 @@ a:visited {
 .next-btn:hover, .prev-btn:hover {
   filter: invert(100%);
   transition: filter 0.5s;
+}
+#selected-project-holder {
+  background-color: #141414;
+  position: absolute;
+  display: none;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  opacity: 0;
+  left: 0px;
+  top: 0px;
+
+  transition: opacity 0.5s;
+}
+#selected-project-holder[visible="true"] {
+  padding-top: 1vw;
+  display: block;
+  opacity: 1;
+  
+  transition: opacity 0.5s;
+}
+#selected-project-holder div {
+  border-radius: 20px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 2vw;
+}
+#selected-project-holder div div {
+  display: flex;
+  justify-content: center;
+  background-color: #171717;
+  height: 30vw;
+  width: auto;
+}
+#selected-project-holder div div img {
+  border-radius: 20px;
+  height: 100%;
+}
+#selected-project-holder div div img[visible="true"] {
+  width: auto;
+}
+.selected-next-btn {
+  left: 5%;
+}
+.selected-prev-btn {
+  right: 5%;
 }
 
 @media screen and (max-width: 950px) {

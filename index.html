@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <div id="selected-project-holder" visible="false">
+    </div>
+
     <h1 id="welcome-text">Hello!</h1>
     <h3 id="intro-text">My name is Ziyad Edris. I was born in 2008, I started coding in 2019 and started by making
         small Unity games, then I tried everything, Python (Pygame), C++ (SFML), Assembly (x86), Ethical Hacking
@@ -57,7 +60,7 @@
                         make an account.<br><br>It uses Open AI's API to ask chatgpt 3.5 questions and forward the
                         answers to the users<br><br>Note: I was planning to keep the first year on free trials for the
                         API as the website slowly becomes popular, but later realized that that strategy doesn't work
-                        for startups, and I found out that it's hard for OpenAI to give me a free trial so the AI 
+                        for startups, and I found out that it's hard for OpenAI to give me a free trial so the AI
                         doesn't answer for now</h3>
                 </div>
                 <div class="project">
@@ -115,7 +118,8 @@
                         <img class="next-btn" src="Resources/Arrow.png">
                     </div>
                     <h1>2D Raycasting Experiment</h1>
-                    <h3>In this project I wanted to understand how to make 2d raycasting to understand sin and cos and atan and be one step closer to being able to understand physics engines</h3>
+                    <h3>In this project I wanted to understand how to make 2d raycasting to understand sin and cos and
+                        atan and be one step closer to being able to understand physics engines</h3>
                 </div>
                 <div class="project">
                     <div class="project-images-holder">
@@ -128,18 +132,39 @@
                         <img class="next-btn" src="Resources/Arrow.png">
                     </div>
                     <h1>AI Pong</h1>
-                    <h3>I wanted to understand AI so I decided to make AI learn to play pong using a python library called neat</h3>
+                    <h3>I wanted to understand AI so I decided to make AI learn to play pong using a python library
+                        called neat</h3>
                 </div>
                 <div class="project">
                     <div class="project-images-holder">
                         <div>
                             <img src="Resources/Aimbot1.png" visible="false">
+                            <img src="Resources/Aimbot2.png" visible="false">
                         </div>
                         <img class="prev-btn" src="Resources/Arrow.png">
                         <img class="next-btn" src="Resources/Arrow.png">
                     </div>
                     <h1>Aimbot</h1>
-                    <h3>This is a bot that I made because I found this <a href="http://www.aimbooster.com">aimbooster website</a> too hard and because I wanted to learn how to automate mouse movement and clicks depending on what's on the screen<br><br>I faced a lot of challenges though, one of them was that the bot would click 2 times on most targets, even if the game said it's running on 60 fps and I set the bot to run on 30, it clicks on every most targets two times, so it seems like the game checks for clicks at around 5 frames per second, but if I make the bot run on 5 frames per second it would be too slow, especially because I need 1 frame for every target to wait for it to dissapear because I don't want to click it multiple times<br><br>NOT COMPLETED...</h3>
+                    <h3>This is a bot that I made because I found this <a href="http://www.aimbooster.com">aimbooster
+                        website</a> too hard and because I wanted to learn how to automate mouse movement and clicks
+                        depending on what's on the screen<br><br>I faced a lot of challenges though, one of them was
+                        that the bot would click 2 times on most targets (as in image one 50% accuracy, (bot needs to be
+                        stopped to take screenshot)), even if the game said it's running on 60 fps and I set the bot to
+                        run on 30, it clicks on most targets two times, so it seems like the game checks for clicks at
+                        around 5 frames per second, but if I make the bot run on 5 frames per second it would be too
+                        slow, especially because I need 1 frame for every target to wait for it to dissapear because I
+                        don't want to click it multiple times and finding out what the diameter of the sphere is would
+                        be too slow, not to mention that the diamater gets bigger then smaller over 3 seconds<br><br>So,
+                        I decided to find out the maximum size of any circle (around 70 pixels) and whenever the bot
+                        clicks at any point it excludes in the next frame a 140px by 140px square with that point as
+                        it's center, the square is 140 by 140 because the bot doesn't know where in the circle it
+                        clicked, center, right, bottom, etc. (And the result is in the second image) (the accuracy was
+                        100% but pressing the button to take the screenshot got identified as a click)<br><br>When I run
+                        the bot with 10 targets per second it seems to be doing good at the start but then random drop
+                        frames start happening and the fps gets worse as the bot fails to click more and more targets
+                        until targets get removed after being clicked by 1 second and all of my pain and suffering turn
+                        out to be useless. (The images have a lot of unclicked circles in them because I have to
+                        stop the bot to take a screenshot)</h3>
                 </div>
                 <div class="project">
                     <div class="project-images-holder">
@@ -150,7 +175,8 @@
                         <img class="next-btn" src="Resources/Arrow.png">
                     </div>
                     <h1>A Whatsapp Bot</h1>
-                    <h3>A whatsapp bot that takes a list of messages and sends them to a selected person, I learned how to parse html to be able to select certain elements and use them</h3>
+                    <h3>A whatsapp bot that takes a list of messages and sends them to a selected person, I learned how
+                        to parse html to be able to select certain elements and use them</h3>
                 </div>
                 <div class="project">
                     <div class="project-images-holder">
@@ -161,7 +187,8 @@
                         <img class="next-btn" src="Resources/Arrow.png">
                     </div>
                     <h1>Bezier Curves</h1>
-                    <h3>A Program to experiment with bezier curves, understand how they work and learn more maths to be able to understand technical things better</h3>
+                    <h3>A Program to experiment with bezier curves, understand how they work and learn more maths to be
+                        able to understand technical things better</h3>
                 </div>
                 <div class="project">
                     <div class="project-images-holder">
@@ -183,7 +210,8 @@
                         <img class="next-btn" src="Resources/Arrow.png">
                     </div>
                     <h1>Cloth Simulation</h1>
-                    <h3>A cloth simulation to better understand and maneuver physics engines, You start and stop the simulation, you can add points and lines and remove lines</h3>
+                    <h3>A cloth simulation to better understand and maneuver physics engines, You start and stop the
+                        simulation, you can add points and lines and remove lines</h3>
                 </div>
                 <div class="project">
                     <div class="project-images-holder">
@@ -194,7 +222,9 @@
                         <img class="next-btn" src="Resources/Arrow.png">
                     </div>
                     <h1>Controlled Sacrifice</h1>
-                    <h3>A 2D platformer made in a game jam, with 8 levels, whenever you lose a life you need to choose a debuff, half gun damage, lose equipped gun, things like this, when all of the 9 debuffs are used you lose</h3>
+                    <h3>A 2D platformer made in a game jam, with 8 levels, whenever you lose a life you need to choose a
+                        debuff, half gun damage, lose equipped gun, things like this, when all of the 9 debuffs are used
+                        you lose</h3>
                 </div>
                 <div class="project">
                     <div class="project-images-holder">
@@ -205,7 +235,8 @@
                         <img class="next-btn" src="Resources/Arrow.png">
                     </div>
                     <h1>Multiplayer rps</h1>
-                    <h3>Rock Paper Scissors but multiplayer, this teached me a lot about networking, but it's multiplayer for players on the same network</h3>
+                    <h3>Rock Paper Scissors but multiplayer, this teached me a lot about networking, but it's
+                        multiplayer for players on the same network</h3>
                 </div>
                 <div class="project">
                     <div class="project-images-holder">
@@ -238,7 +269,8 @@
                         <img class="next-btn" src="Resources/Arrow.png">
                     </div>
                     <h1>Server Test</h1>
-                    <h3>An experiment to try to make my laptop run my server and make anyone be able to connect to it</h3>
+                    <h3>An experiment to try to make my laptop run my server and make anyone be able to connect to it
+                    </h3>
                 </div>
                 <div class="project">
                     <div class="project-images-holder">
@@ -260,7 +292,10 @@
                         <img class="next-btn" src="Resources/Arrow.png">
                     </div>
                     <h1>The Welcomer</h1>
-                    <h3>The Wecomer, the app designed to welcome you everyday with everything you need<br><br>You can change the wallpaper in seconds from a very large library of fantastic wallpapers and you can have your own list of useful websites. Just all of the handy things that are just missing for no reason.<br><br>Also you can customize everything in this app</h3>
+                    <h3>The Wecomer, the app designed to welcome you everyday with everything you need<br><br>You can
+                        change the wallpaper in seconds from a very large library of fantastic wallpapers and you can
+                        have your own list of useful websites. Just all of the handy things that are just missing for no
+                        reason.<br><br>Also you can customize everything in this app</h3>
                 </div>
             </div>
         </div>
