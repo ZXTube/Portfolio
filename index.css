@@ -10,6 +10,9 @@ a:visited {
   color: #3d5eef;
   text-decoration: none;
 }
+pre {
+  white-space: pre-wrap;
+}
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -39,10 +42,15 @@ a:visited {
 }
 
 #skills-holder {
+  margin-bottom: 3.5vw;
   margin-top: 3.5vw;
   margin-left: 5vw;
-  margin-bottom: 3.5vw;
   width: 90vw;
+}
+#skills-holder[visible="false"] {
+  animation: fadeOut 0.5s;
+  display: none;
+  opacity: 0;
 }
 .skill {
   background-color: #ffffff05;
@@ -163,8 +171,8 @@ a:visited {
 }
 #selected-project-holder {
   background-color: #141414;
+  pointer-events: none;
   position: absolute;
-  display: none;
   height: 100%;
   width: 100%;
   z-index: 2;
@@ -175,8 +183,8 @@ a:visited {
   transition: opacity 0.5s;
 }
 #selected-project-holder[visible="true"] {
+  pointer-events: all;
   padding-top: 1vw;
-  display: block;
   opacity: 1;
   
   transition: opacity 0.5s;
@@ -201,11 +209,37 @@ a:visited {
 #selected-project-holder div div img[visible="true"] {
   width: auto;
 }
-.selected-next-btn {
-  left: 5%;
+#selected-project-holder h1 {
+  margin: 0px;
+  font-size: 4vw;
 }
-.selected-prev-btn {
-  right: 5%;
+#selected-project-holder h2 {
+  margin: 0px;
+  margin-top: 1vw;
+  text-align: left;
+  line-height: 0px;
+  font-size: 1.3vw;
+}
+#selected-project-holder h3 {
+  text-align: left;
+  font-size: 1.2vw;
+  line-height: 30px;
+  margin: 2.5vw 10vw;
+  font-weight: lighter;
+}
+#selected-project-exit-btn {
+  transition: filter 0.2s;
+  filter: invert(80%);
+  position: absolute;
+  cursor: pointer;
+  height: 3vw;
+  width: 3vw;
+  right: 5vw;
+  top: 3vw;
+}
+#selected-project-exit-btn:hover {
+  transition: filter 0.2s;
+  filter: invert(100%);
 }
 
 @media screen and (max-width: 950px) {
@@ -256,5 +290,15 @@ a:visited {
   .project h3 {
     font-size: 11px;
     margin: 10px;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    display: block;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
