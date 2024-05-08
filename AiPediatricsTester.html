@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Warda</title>
+
+        <style>
+          .vapi-btn {
+            margin: 0px !important;
+            position: absolute !important;
+            left: 50vw !important;
+            top: 50vh !important;
+            transform: translate(-50%, -50%) !important;
+            animation: none !important; 
+          }
+        </style>
+    </head>
+
+    <body>
+      <script>
+        var vapiInstance = null;
+        const assistant = "4fdc76fb-4b57-4742-8753-85473dfba032";
+        const apiKey = "1ef7ca5e-9f52-4203-86c6-544de63a4c85";
+        const buttonConfig = {
+          position: "bottom",
+          width: "50px",
+          height: "50px",
+          idle: {
+            color: `rgb(93, 254, 202)`, 
+            type: "pill", 
+            title: "Want someone to test you?",
+            subtitle: "Talk to Warda",
+            icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+          },
+          loading: {
+            color: `rgb(93, 124, 202)`,
+            type: "round",
+            icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+          },
+          active: {
+            color: `rgb(200, 0, 50)`,
+            type: "round",
+            icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
+          },
+        };
+
+        (function (d, t) {
+          var g = document.createElement(t), 
+            s = d.getElementsByTagName(t)[0];
+          g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+          g.defer = true;
+          g.async = true;
+          s.parentNode.insertBefore(g, s);
+
+          g.onload = function () {
+            vapiInstance = window.vapiSDK.run({
+              apiKey: apiKey,
+              assistant: assistant,
+              config: buttonConfig,
+            });
+          };
+        })(document, "script");
+      </script>
+    </body>
+</html>
