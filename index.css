@@ -35,10 +35,11 @@ pre {
   font-size: 7vw;
 }
 #intro-text {
+  font-family: Courier;
   font-weight: normal;
   margin-right: 15vw;
   margin-left: 15vw;
-  font-size: 1.3vw;
+  font-size: 1vw;
 }
 
 #skills-holder {
