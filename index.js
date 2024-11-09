@@ -87,7 +87,7 @@ function manageSkills() {
             for (let i = 1; i < skillChildren.length; i += 2) {
                 height += skillChildren[i].offsetHeight;
             }
-            skills[i].style.setProperty("--expanded-height", height.toString() + "px");
+            // skills[i].style.setProperty("--expanded-height", height.toString() + "px");
         }
     }
 }
