@@ -62,19 +62,47 @@
 
   <!-- Input for number of deliveries -->
   <label for="deliveries">Number of Deliveries:</label>
-  <input type="number" id="deliveries" min="0" step="1" placeholder="Enter whole number">
+  <input 
+    type="number" 
+    id="deliveries" 
+    min="0" 
+    step="1" 
+    placeholder="Enter whole number"
+    inputmode="numeric" 
+    pattern="[0-9]*">
 
   <!-- Input for Leixlip bonus -->
   <label for="leixlip">Leixlip (Bonus: €1 per unit):</label>
-  <input type="number" id="leixlip" min="0" step="1" placeholder="Enter whole number">
+  <input 
+    type="number" 
+    id="leixlip" 
+    min="0" 
+    step="1" 
+    placeholder="Enter whole number"
+    inputmode="numeric" 
+    pattern="[0-9]*">
 
   <!-- Input for Celbridge bonus -->
   <label for="celbridge">Celbridge (Bonus: €2 per unit):</label>
-  <input type="number" id="celbridge" min="0" step="1" placeholder="Enter whole number">
+  <input 
+    type="number" 
+    id="celbridge" 
+    min="0" 
+    step="1" 
+    placeholder="Enter whole number"
+    inputmode="numeric" 
+    pattern="[0-9]*">
 
   <!-- Input for Driver Cash on Hand -->
   <label for="driverCash">Driver Cash on Hand:</label>
-  <input type="number" id="driverCash" min="0" step="1" placeholder="Enter whole number">
+  <input 
+    type="number" 
+    id="driverCash" 
+    min="0" 
+    step="0.01" 
+    placeholder="Enter whole number"
+    inputmode="numeric" 
+    pattern="[0-9]*">
 
   <!-- Button to trigger calculation -->
   <button onclick="calculatePay()">Calculate Pay</button>
@@ -143,7 +171,7 @@
       const deliveries = parseInt(document.getElementById("deliveries").value, 10) || 0;
       const leixlip    = parseInt(document.getElementById("leixlip").value, 10) || 0;
       const celbridge  = parseInt(document.getElementById("celbridge").value, 10) || 0;
-      const driverCash = parseInt(document.getElementById("driverCash").value, 10) || 0;
+      const driverCash = parseFloat(document.getElementById("driverCash").value) || 0;
 
       // Validate that all inputs are valid whole numbers.
       if (isNaN(deliveries) || deliveries < 0 ||
