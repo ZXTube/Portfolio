@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Driver Pay Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Remove spinner arrows in number inputs for Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Remove spinner arrows in Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Driver Pay Calculator</h1>
+
+    <!-- Dropdown for start time -->
+    <label for="startTime">Start Time:</label>
+    <select id="startTime"></select>
+
+    <!-- Dropdown for end time (populated dynamically based on start time) -->
+    <label for="endTime">End Time:</label>
+    <select id="endTime"></select>
+
+    <!-- Input for number of deliveries -->
+    <label for="deliveries">Number of Deliveries:</label>
+    <input type="number" id="deliveries" min="0" step="1" placeholder="Enter number">
+
+    <!-- Input for Leixlip bonus -->
+    <label for="leixlip">Leixlip:</label>
+    <input type="number" id="leixlip" min="0" step="1" placeholder="Enter number">
+
+    <!-- Input for Celbridge bonus -->
+    <label for="celbridge">Celbridge:</label>
+    <input type="number" id="celbridge" min="0" step="1" placeholder="Enter number">
+
+    <!-- Input for Driver Cash on Hand -->
+    <label for="driverCash">Driver Cash on Hand:</label>
+    <input type="number" id="driverCash" min="0" step="0.01" placeholder="Enter number">
+
+    <!-- Button to trigger calculation -->
+    <button onclick="calculatePay()">Calculate Pay</button>
+
+    <!-- Display the result -->
+    <div id="result" class="result"></div>
+
+    <script>
+        // Define the shop's operating hours using numeric values for calculation:
+        // 1:00 PM = 13, 2:00 PM = 14, …, 11:00 PM = 23, 12:00 AM = 24, 1:00 AM = 25, 2:00 AM = 26.
+        const times = [
+            { text: "1:00 PM", value: 13 },
+            { text: "2:00 PM", value: 14 },
+            { text: "3:00 PM", value: 15 },
+            { text: "4:00 PM", value: 16 },
+            { text: "5:00 PM", value: 17 },
+            { text: "6:00 PM", value: 18 },
+            { text: "7:00 PM", value: 19 },
+            { text: "8:00 PM", value: 20 },
+            { text: "9:00 PM", value: 21 },
+            { text: "10:00 PM", value: 22 },
+            { text: "11:00 PM", value: 23 },
+            { text: "12:00 AM", value: 24 },
+            { text: "1:00 AM", value: 25 },
+            { text: "2:00 AM", value: 26 }
+        ];
+
+        // Populate the startTime dropdown.
+        function populateStartTime() {
+            const startSelect = document.getElementById("startTime");
+            times.forEach(time => {
+                const option = document.createElement("option");
+                option.value = time.value;
+                option.textContent = time.text;
+                startSelect.appendChild(option);
+            });
+        }
+        populateStartTime();
+
+        // Function to update the endTime dropdown based on the selected start time.
+        function updateEndTimeOptions() {
+            const startTimeValue = parseInt(document.getElementById("startTime").value, 10);
+            const endSelect = document.getElementById("endTime");
+            // Clear any existing options.
+            endSelect.innerHTML = "";
+            // Add only times that are strictly after the selected start time.
+            times.forEach(time => {
+                if (time.value > startTimeValue) {
+                    const option = document.createElement("option");
+                    option.value = time.value;
+                    option.textContent = time.text;
+                    endSelect.appendChild(option);
+                }
+            });
+        }
+
+        // Update endTime options whenever the startTime selection changes.
+        document.getElementById("startTime").addEventListener("change", updateEndTimeOptions);
+        // Initialize the endTime dropdown based on the default start time.
+        updateEndTimeOptions();
+
+        // Function to calculate the driver's pay and determine the cash difference.
+        function calculatePay() {
+            const startTime = parseInt(document.getElementById("startTime").value, 10);
+            const endTime = parseInt(document.getElementById("endTime").value, 10);
+            const deliveries = parseInt(document.getElementById("deliveries").value, 10) || 0;
+            const leixlip = parseInt(document.getElementById("leixlip").value, 10) || 0;
+            const celbridge = parseInt(document.getElementById("celbridge").value, 10) || 0;
+            const driverCash = parseFloat(document.getElementById("driverCash").value) || 0;
+
+            // Validate that all inputs are valid whole numbers.
+            if (isNaN(deliveries) || deliveries < 0 ||
+                isNaN(leixlip) || leixlip < 0 ||
+                isNaN(celbridge) || celbridge < 0 ||
+                isNaN(driverCash) || driverCash < 0) {
+                alert("Please ensure all values are valid whole numbers.");
+                return;
+            }
+
+            // Calculate the number of hours worked.
+            let hoursWorked = endTime - startTime;
+            if (hoursWorked < 0) {
+                // Adjust if the shift spans midnight.
+                hoursWorked += 24;
+            }
+
+            // Define rates.
+            const hourlyRate = 6;
+            const deliveryRate = 2.8;
+            const leixlipBonusRate = 1;  // €1 per unit.
+            const celbridgeBonusRate = 2; // €2 per unit.
+
+            // Compute total earnings.
+            const totalPay = (hoursWorked * hourlyRate) +
+                (deliveries * deliveryRate) +
+                (leixlip * leixlipBonusRate) +
+                (celbridge * celbridgeBonusRate);
+
+            // Determine cash difference:
+            // - If totalPay > driverCash, the shop owes the driver the difference.
+            // - If driverCash > totalPay, the driver must return the excess to the shop.
+            const difference = totalPay - driverCash;
+            let cashMessage = "";
+            if (difference > 0) {
+                cashMessage = "Shop owes driver: €" + difference.toFixed(2);
+            } else if (difference < 0) {
+                cashMessage = "Driver must return: €" + Math.abs(difference).toFixed(2);
+            } else {
+                cashMessage = "Cash is balanced.";
+            }
+
+            // Display the total earnings and the cash difference.
+            document.getElementById("result").innerHTML =
+                "Total Pay: €" + totalPay.toFixed(2) + "<br>" + cashMessage;
+        }
+    </script>
+</body>
+
+</html>
